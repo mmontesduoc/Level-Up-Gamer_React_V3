@@ -11,6 +11,8 @@ import Pc from "./pages/pc";
 import NintendoPage from "./pages/nintendo";
 import ContactoPage from "./pages/contacto";
 import Tienda from "./pages/Tienda";
+import InicioSesion from "./pages/InicioSesion";
+import Registro from "./pages/Registro";
 
 function App() {
   return (
@@ -25,6 +27,9 @@ function App() {
             <Route path="/nintendo" element={<NintendoPage />} />
             <Route path="/contacto" element={<ContactoPage />} />
             <Route path="/tienda" element={<Tienda />} />
+            <Route path="/inicio-sesion" element={<InicioSesion />} />
+            <Route path="/registro" element={<Registro />} />
+
             {/* Agrega más rutas aquí */}
           </Routes>
         </main>
