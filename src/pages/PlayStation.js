@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -133,6 +133,12 @@ const products = [
 
 
 const PlayStation = () => {
+	const [selectedCategory, setSelectedCategory] = useState("all");
+
+  const filteredProducts =
+    selectedCategory === "all"
+      ? products
+      : products.filter((product) => product.category === selectedCategory);
   return (
     <>
       <div style={{ height: "25px" }}></div> {/* espacio de 50px */}
@@ -156,69 +162,72 @@ const PlayStation = () => {
       {/* Filtros de Categoría */}
       <div className="container mb-5">
         <div className="text-center">
-          <button className="btn btn-outline-primary m-2 filter-btn" data-category="all">
+          <button className="btn btn-outline-primary m-2 filter-btn" onClick={() => setSelectedCategory("all")}>
+		  
             Todos los Productos
           </button>
-          <button className="btn btn-outline-primary m-2 filter-btn" data-category="consoles">
+          <button className="btn btn-outline-primary m-2 filter-btn" onClick={() => setSelectedCategory("consoles")}>
+		  
             Consolas
           </button>
-          <button className="btn btn-outline-primary m-2 filter-btn" data-category="games">
+          <button className="btn btn-outline-primary m-2 filter-btn" onClick={() => setSelectedCategory("games")}>
+		  
             Juegos
           </button>
-          <button className="btn btn-outline-primary m-2 filter-btn" data-category="accessories">
+          <button className="btn btn-outline-primary m-2 filter-btn" onClick={() => setSelectedCategory("accessories")}>
+		  
             Accesorios
           </button>
         </div>
       </div>
 
       {/* Sección de productos */}
-      <section className="game-section-carro">
-        <div className="container">
-          <div className="row" id="products-container">
-            {products.map((product) => (
-              <div
-                key={product.id}
-                className="col-lg-3 col-md-6 mb-4 product-item-carro"
-                data-category={product.category}
-              >
-                <div className="card h-100">
-                  <img src={product.img} className="card-img-top-carro" alt={product.name} />
-                  <div className="card-body-carro d-flex flex-column">
-                    <h5 className="card-title-carro">{product.name}</h5>
-
-                    {product.specs && (
-                      <div className="bg-primary bg-opacity-25 p-3 rounded mb-3">
-                        <h6 className="text-primary mb-2">
-                          <i className="fas fa-list"></i> Especificaciones:
-                        </h6>
-                        {Object.entries(product.specs).map(([key, value]) => (
-                          <div
-                            key={key}
-                            className="d-flex justify-content-between border-bottom border-secondary py-1"
-                          >
-                            <span>{key}:</span>
-                            <span>{value}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    <p className="card-text-carro">{product.description}</p>
-                    <div className="mt-auto">
-                      <div className="text-center-carro mb-3">
-                        <span className="precio">{product.price}</span>
-                      </div>
-                      <button className="btn btn-primary w-100 add-to-cart-carro">
-                        <i className="fas fa-cart-plus"></i> Agregar al Carrito
-                      </button>
+      {/* Sección de productos */}
+<section className="game-section-carro">
+  <div className="container">
+    <div className="row" id="products-container">
+      {filteredProducts.map((product) => (
+        <div
+          key={product.id}
+          className="col-lg-3 col-md-6 mb-4 product-item-carro"
+          data-category={product.category}
+        >
+          <div className="card h-100">
+            <img src={product.img} className="card-img-top-carro" alt={product.name} />
+            <div className="card-body-carro d-flex flex-column">
+              <h5 className="card-title-carro">{product.name}</h5>
+              {product.specs && (
+                <div className="bg-primary bg-opacity-25 p-3 rounded mb-3">
+                  <h6 className="text-primary mb-2">
+                    <i className="fas fa-list"></i> Especificaciones:
+                  </h6>
+                  {Object.entries(product.specs).map(([key, value]) => (
+                    <div
+                      key={key}
+                      className="d-flex justify-content-between border-bottom border-secondary py-1"
+                    >
+                      <span>{key}:</span>
+                      <span>{value}</span>
                     </div>
-                  </div>
+                  ))}
                 </div>
+              )}
+              <p className="card-text-carro">{product.description}</p>
+              <div className="mt-auto">
+                <div className="text-center-carro mb-3">
+                  <span className="precio">{product.price}</span>
+                </div>
+                <button className="btn btn-primary w-100 add-to-cart-carro">
+                  <i className="fas fa-cart-plus"></i> Agregar al Carrito
+                </button>
               </div>
-            ))}
+            </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
    
     </>

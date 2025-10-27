@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,8 +13,6 @@ import img6 from "../images/mando.jpg";
 import img7 from "../images/t.png";
 import img8 from "../images/v.png";
 
-
-
 // Lista de productos
 const products = [
   {
@@ -23,12 +21,13 @@ const products = [
     name: "Nintendo Switch OLED",
     img: img1,
     specs: {
-      "Pantalla": "OLED 7",
-      "Almacenamiento": "64GB",
-      "Modos": "TV, Sobremesa, Portátil",
-      "Batería": "4.5-9 horas",
+      Pantalla: "OLED 7",
+      Almacenamiento: "64GB",
+      Modos: "TV, Sobremesa, Portátil",
+      Batería: "4.5-9 horas",
     },
-    description: "La consola híbrida con pantalla OLED vibrante. Juega en casa o donde quieras.",
+    description:
+      "La consola híbrida con pantalla OLED vibrante. Juega en casa o donde quieras.",
     price: "$349.990",
   },
   {
@@ -37,12 +36,13 @@ const products = [
     name: "Nintendo Switch Lite",
     img: img2,
     specs: {
-      "Pantalla": "LCD 5.5",
-      "Almacenamiento": "32GB",
-      "Modos": "Solo Portátil",
-      "Batería": "3-7 horas",
+      Pantalla: "LCD 5.5",
+      Almacenamiento: "32GB",
+      Modos: "Solo Portátil",
+      Batería: "3-7 horas",
     },
-    description: "Versión portátil dedicada, más ligera y económica para gaming en movimiento.",
+    description:
+      "Versión portátil dedicada, más ligera y económica para gaming en movimiento.",
     price: "$199.990",
   },
   {
@@ -51,12 +51,13 @@ const products = [
     name: "The Legend of Zelda: Tears of the Kingdom",
     img: img3,
     specs: {
-      "Género": "Aventura/Acción",
-      "Jugadores": "1 jugador",
-      "Clasificación": "T (Teen)",
-      "Espacio": "18.2 GB",
+      Género: "Aventura/Acción",
+      Jugadores: "1 jugador",
+      Clasificación: "T (Teen)",
+      Espacio: "18.2 GB",
     },
-    description: "La épica aventura continúa en Hyrule con nuevas habilidades y misterios por descubrir.",
+    description:
+      "La épica aventura continúa en Hyrule con nuevas habilidades y misterios por descubrir.",
     price: "$69.990",
   },
   {
@@ -65,12 +66,13 @@ const products = [
     name: "Super Mario Odyssey",
     img: img4,
     specs: {
-      "Género": "Plataformas",
-      "Jugadores": "1-2 jugadores",
-      "Clasificación": "E10+ (Everyone 10+)",
-      "Espacio": "5.7 GB",
+      Género: "Plataformas",
+      Jugadores: "1-2 jugadores",
+      Clasificación: "E10+ (Everyone 10+)",
+      Espacio: "5.7 GB",
     },
-    description: "Únete a Mario en una aventura épica a través de reinos misteriosos con su fiel Cappy.",
+    description:
+      "Únete a Mario en una aventura épica a través de reinos misteriosos con su fiel Cappy.",
     price: "$59.990",
   },
   {
@@ -79,12 +81,13 @@ const products = [
     name: "Mario Kart 8 Deluxe",
     img: img5,
     specs: {
-      "Género": "Carreras",
-      "Jugadores": "1-4 local, 2-12 online",
-      "Clasificación": "E (Everyone)",
-      "Espacio": "6.8 GB",
+      Género: "Carreras",
+      Jugadores: "1-4 local, 2-12 online",
+      Clasificación: "E (Everyone)",
+      Espacio: "6.8 GB",
     },
-    description: "Las carreras más emocionantes con todos tus personajes favoritos de Nintendo.",
+    description:
+      "Las carreras más emocionantes con todos tus personajes favoritos de Nintendo.",
     price: "$59.990",
   },
   {
@@ -93,12 +96,13 @@ const products = [
     name: "Nintendo Switch Pro Controller",
     img: img6,
     specs: {
-      "Conexión": "Bluetooth/USB-C",
-      "Batería": "40 horas",
-      "Vibración": "HD Rumble",
-      "NFC": "Compatible amiibo",
+      Conexión: "Bluetooth/USB-C",
+      Batería: "40 horas",
+      Vibración: "HD Rumble",
+      NFC: "Compatible amiibo",
     },
-    description: "Control profesional con ergonomía superior y tecnología avanzada de vibración.",
+    description:
+      "Control profesional con ergonomía superior y tecnología avanzada de vibración.",
     price: "$69.990",
   },
   {
@@ -107,12 +111,13 @@ const products = [
     name: "Carcasa Protectora Nintendo Switch",
     img: img7,
     specs: {
-      "Material": "TPU flexible",
-      "Protección": "Anti-golpes",
-      "Acceso": "Todos los puertos",
-      "Colores": "5 opciones",
+      Material: "TPU flexible",
+      Protección: "Anti-golpes",
+      Acceso: "Todos los puertos",
+      Colores: "5 opciones",
     },
-    description: "Protege tu Nintendo Switch con estilo. Incluye protectores de pantalla de vidrio templado.",
+    description:
+      "Protege tu Nintendo Switch con estilo. Incluye protectores de pantalla de vidrio templado.",
     price: "$19.990",
   },
   {
@@ -122,20 +127,27 @@ const products = [
     img: img8,
     specs: {
       "Tipo de Producto": "Controles Gamers",
-      "Incluye": "2 Unidades",
-      "Acceso": "Todos los puertos",
-      "Colores": "5 opciones",
+      Incluye: "2 Unidades",
+      Acceso: "Todos los puertos",
+      Colores: "5 opciones",
     },
-    description: "Protege tu Nintendo Switch con estilo. Incluye protectores de pantalla de vidrio templado.",
+    description:
+      "Añade emoción a tus juegos de carreras con este set de volantes Joy-Con.",
     price: "$35.990",
   },
 ];
 
+const Nintendo = () => {
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
-const nintendo = () => {
+  const filteredProducts =
+    selectedCategory === "all"
+      ? products
+      : products.filter((product) => product.category === selectedCategory);
+
   return (
     <>
-      <div style={{ height: "25px" }}></div> {/* espacio de 50px */}
+      <div style={{ height: "25px" }}></div> {/* espacio de 25px */}
 
       {/* Header */}
       <div
@@ -156,16 +168,28 @@ const nintendo = () => {
       {/* Filtros de Categoría */}
       <div className="container mb-5">
         <div className="text-center">
-          <button className="btn btn-outline-primary m-2 filter-btn" data-category="all">
+          <button
+            className="btn btn-outline-primary m-2 filter-btn"
+            onClick={() => setSelectedCategory("all")}
+          >
             Todos los Productos
           </button>
-          <button className="btn btn-outline-primary m-2 filter-btn" data-category="consoles">
+          <button
+            className="btn btn-outline-primary m-2 filter-btn"
+            onClick={() => setSelectedCategory("consoles")}
+          >
             Consolas
           </button>
-          <button className="btn btn-outline-primary m-2 filter-btn" data-category="games">
+          <button
+            className="btn btn-outline-primary m-2 filter-btn"
+            onClick={() => setSelectedCategory("games")}
+          >
             Juegos
           </button>
-          <button className="btn btn-outline-primary m-2 filter-btn" data-category="accessories">
+          <button
+            className="btn btn-outline-primary m-2 filter-btn"
+            onClick={() => setSelectedCategory("accessories")}
+          >
             Accesorios
           </button>
         </div>
@@ -175,14 +199,18 @@ const nintendo = () => {
       <section className="game-section-carro">
         <div className="container">
           <div className="row" id="products-container">
-            {products.map((product) => (
+            {filteredProducts.map((product) => (
               <div
                 key={product.id}
                 className="col-lg-3 col-md-6 mb-4 product-item-carro"
                 data-category={product.category}
               >
                 <div className="card h-100">
-                  <img src={product.img} className="card-img-top-carro" alt={product.name} />
+                  <img
+                    src={product.img}
+                    className="card-img-top-carro"
+                    alt={product.name}
+                  />
                   <div className="card-body-carro d-flex flex-column">
                     <h5 className="card-title-carro">{product.name}</h5>
 
@@ -216,13 +244,17 @@ const nintendo = () => {
                 </div>
               </div>
             ))}
+
+            {filteredProducts.length === 0 && (
+              <p className="text-center text-muted">
+                No hay productos disponibles en esta categoría.
+              </p>
+            )}
           </div>
         </div>
       </section>
-
-   
     </>
   );
 };
 
-export default nintendo;
+export default Nintendo;
