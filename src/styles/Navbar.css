@@ -1,0 +1,113 @@
+/* Navbar Styles */
+.navbar {
+  background-color: var(--primary-color) !important;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-brand,
+.nav-link {
+  color: var(--text-light) !important;
+}
+
+/* Centrar menú */
+#navbarSupportedContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-nav {
+  margin: 0 auto !important; /* Centra los ítems */
+}
+
+
+/* Separar los títulos del menu */
+.navbar-nav .nav-item {
+  margin: 0 15px;
+}
+
+.navbar-nav .nav-item:hover {
+  transform: translateY(-10px);
+  transition: transform 0.5s;
+}
+
+/* Hacer que el navbar ocupe todo el ancho */
+.container-fluid {
+  padding: 0;
+}
+
+/* Ajustes para el botón del menú en móviles */
+.navbar-toggler {
+  position: absolute;
+  right: 15px;
+}
+
+/* Estilos para el icono del carrito y login */
+.cart-section {
+  display: flex;
+  align-items: center;
+  order: 1;                   /* Mueve el grupo al inicio (izquierda) */
+}
+
+.cart-icon,
+.cart-login {
+  position: relative;
+  margin-right: 15px;         /* Espacio entre iconos */
+}
+
+.cart-login a,
+.cart-icon a {
+  color: var(--text-light);
+  font-size: 18px;
+  text-decoration: none;
+  padding: 6px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.cart-login a:hover,
+.cart-icon a:hover {
+  color: #6eb4ff;
+}
+
+.cart-count {
+  position: absolute;
+  top: -3px;
+  right: -6px;
+  background: red;
+  color: var(--text-light);
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 5px;
+  border-radius: 50%;
+}
+
+.inicio-sesion {
+  font-size: 14px;
+  margin-left: 4px;
+  margin-right: 10px;
+}
+.cart-login {
+  margin-right: 20px; /* ajusta el valor según el espacio deseado */
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  display: flex;
+  align-items: center;
+}
+.cart-login a:hover .inicio-sesion,
+.cart-login a:hover i {
+  color: #6eb4ff; /* color al pasar el mouse */
+  transition: color 0.3s ease;
+}
+
+.logo-brand {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  margin-left: 20px;
+}
