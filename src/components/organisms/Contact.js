@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/contacts.css";
-import logoImg2 from "../images/logo2.png";
+import "../../styles/contacts.css";
+import logoImg2 from "../../images/logo2.png";
 
 const Contact = () => {
   return (

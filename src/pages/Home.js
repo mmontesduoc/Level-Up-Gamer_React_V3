@@ -1,6 +1,6 @@
 import React from 'react';
-import Carousel from '../components/Carousel';
-import FeaturedProducts from '../components/FeaturedProducts';
+import Carousel from '../components/organisms/Carousel';
+import FeaturedProducts from '../components/organisms/FeaturedProducts';
 
 const Home = () => {
 	  return (
