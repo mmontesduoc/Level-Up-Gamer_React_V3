@@ -1,8 +1,8 @@
 import React from 'react';
-import '../styles/Carousel.css';
-import juegoscod from '../images/juegoscod.jpg';
-import gamingSetup from '../images/ultimate-gaming-setup.jpg';
-import consolas from '../images/gamer.jpg';
+import '../../styles/Carousel.css';
+import juegoscod from '../../images/juegoscod.jpg';
+import gamingSetup from '../../images/ultimate-gaming-setup.jpg';
+import consolas from '../../images/gamer.jpg';
 const Carousel = () => {
 	  return (
 		      <div id="mainCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel">

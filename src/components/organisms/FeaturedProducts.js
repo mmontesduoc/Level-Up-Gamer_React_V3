@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Products.css';
-import nintendoImg from '../images/mundonintendo.jpg';
-import playImg from '../images/mundoplay.jpg';
-import pcImg from '../images/setup.jpg';
+import '../../styles/Products.css';
+import nintendoImg from '../../images/mundonintendo.jpg';
+import playImg from '../../images/mundoplay.jpg';
+import pcImg from '../../images/setup.jpg';
 
 const FeaturedProducts = () => {
 	  const products = [
